@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/p
+    http://www.springframework.org/schema/p/spring-p.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+">
+
+
+
+    <!--
+    first the spring will create the object
+    Student student = new Student();
+
+    and then it will set the properties using setter methods
+    We will use the property tag to set the values
+
+-->
+
+        <!-- one way-->
+    <bean class="com.springcore.di.Student" name="student1">
+        <property name="studentName">
+            <value>Hari</value>
+        </property>
+
+        <property name="studentAge">
+            <value>21</value>
+        </property>
+
+        <property name="studentCity">
+            <value>Mumbai</value>
+        </property>
+    </bean>
+
+    <!--    second way-->
+    <bean class="com.springcore.di.Student" name="student2">
+        <property name="studentName" value="Ravi"/>
+        <property name="studentAge" value="24"/>
+        <property name="studentCity" value="Lucknow"/>
+    </bean>
+
+
+
+<!--**************************************************************************************************************************************************-->
+
+
+<!--    using the constructor injection-->
+
+
+<!-- Ordering is imp-->
+    <bean class="com.springcore.di.Student" name="student3">
+        <constructor-arg  value="Lucknow" index="2"/>
+        <constructor-arg  value="Ravi" index="0"/>
+        <constructor-arg  value="24" index="1"/>
+    </bean>
+
+
+    <!--**************************************************************************************************************************************************-->
+
+
+    <bean class="com.springcore.di.Employee" name="emp">
+        <property name="name" value="Rohit" />
+        <property name="id" value="23423" />
+
+        <property name="skills" >
+            <list>
+                <value>Java</value>
+                <value>Spring</value>
+                <value>Hibernate</value>
+                <value>SQL</value>
+            </list>
+        </property>
+
+
+      <property name="address">
+          <bean class="com.springcore.di.Address" />
+      </property>
+
+    </bean>
+    <!--**************************************************************************************************************************************************-->
+
+    <bean class="com.springcore.di.Address" name="addressObj" />
+
+
+    <bean class="com.springcore.di.Employee" id = "emp2">
+        <constructor-arg  value="Harry" index="0" />
+        <constructor-arg  value="2345" index="1"/>
+
+        <constructor-arg  index="2">
+            <list>
+                <value>Dev</value>
+                <value>tester</value>
+            </list>
+        </constructor-arg>
+
+        <constructor-arg ref="addressObj" index="3"  />
+
+    </bean>
+
+
+
+
+
+
+
+</beans>
