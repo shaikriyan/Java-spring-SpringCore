@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- bean definitions here -->
+
+    <!-- This will create an obj of student  {Student student1 = new Student()} -->
+    <bean class="com.springcore.beans.Student" id="student1" />
+
+    <!-- This will create an obj of student  {Person person = new Person()} -->
+    <bean class="com.springcore.beans.Employee" id="employee"/>
+
+
+    <bean class="com.springcore.beans.Employee" id="person" />
+
+
+
+
+</beans>
